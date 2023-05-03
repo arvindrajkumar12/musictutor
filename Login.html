@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Login to TutorMatch!</title>
+        <meta charset = "utf-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0"> 
+        <meta name = "author" content = "Arvind">    
+        <meta name = "keywords" content = "Music, Tutor, Chennai">
+
+        <link rel = "stylesheet" href= "new.css"> 
+ 
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src = "script.js"></script>
+
+        <script>
+            function validation(){
+                var form = document.getElementById ("form");
+                var email = document.getElementById ("email").value; 
+                var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                var ps1 = document.getElementById ("password");
+                var ps2 = document.getElementById ("password2");
+                var u = document.getElementById ("username").value;
+                if (email.match (pattern)){
+                } else if (!email.match(pattern)){
+                    window.alert ("Wrong email format");
+                    document.getElementById ("email").value = "";
+                    var x = window.prompt ("Enter correct mail ID");
+                    document.getElementById ("email").value = x;
+                }
+
+                else if (ps1 == ps2){
+                    
+                } else if (ps1 != ps2) {
+                    window.alert ("Both passwords do not match");
+                } else if (u == ""){
+                    window.alert ("Enter username");
+                }
+                else {
+                    window.alert ("Thank you for entering all details correctly");
+                }
+            }
+        </script>
+
+    </head>
+
+    <body>
+
+        <header>
+        <h6 class="logo"><i>Music tutors! Find them anywhere! </i></h6>
+        <nav class="navigation"> 
+            <a href = "#"> Home </a>
+            <a href = "#about"> About </a>
+            <a href = "#contact"> Centers</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <div class="form-box">
+            <h2>Join as tutor!</h2>
+            <br>
+            <form id = "form">
+                <div class="input-box">
+                    <span class = "icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type = "text" placeholder = "Enter username" id = "username" style='color: #FFF'>
+                </div>
+                <div class="input-box">
+                    <span class = "icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type = "email" placeholder = "Enter email ID again" id="email" ng-model = "email" style='color: #FFF' >
+                </div>
+                <div class="input-box">
+                    <span class = "icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type = "password" placeholder = "Enter password" id="password" style='color: #FFF'>
+                </div>
+                <div class="input-box">
+                    <span class = "icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type = "password" placeholder = "Enter password again" id = "password2" style='color: #FFF'>
+                </div>
+                <button type = "button" value="Submit" class = "btn" onclick="validation()">Proceed to next details</button>
+            </form>
+        </div>
+    </div>
+    </body>
+</html>
